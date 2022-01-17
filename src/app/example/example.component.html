@@ -1,0 +1,71 @@
+<div class="example-content">
+    <div class="topic">
+        <h2>Variable</h2>
+        <p>This text came from component.ts : {{ text_from_ts }}</p>
+    </div>
+
+    <div class="topic">
+        <h2>Input</h2>
+        <p>This text came from component.ts : {{ text_from_ts }}</p>
+        <input type="text" [(ngModel)]="text_from_input">
+        <p>This text came from input : {{ text_from_input }}</p>
+    </div>
+
+    <div class="topic">
+        <h2>Click</h2>
+        <p>I have : {{ banana_count }} bananas</p>
+        <button class="btn btn-primary" (click)="addBanana()">Add a banana</button>
+        <button class="btn btn-danger" (click)="trashBanana()">Trash all bananas</button>
+    </div>
+
+    <div class="topic">
+        <h2>Change</h2>
+        <input type="text" (change)="textChange($event)">
+        <p>Text from Input : {{ text_change }}</p>
+    </div>
+
+    <div class="topic">
+        <h2>*ngIf</h2>
+        <div>
+            <input type="checkbox" [(ngModel)]="isHappy">
+            <label style="margin-left:1rem;">I am HAPPY</label>
+        </div>
+        <p class="ngif" *ngIf="isHappy; else elseCondition">You are HAPPY</p>
+        <ng-template #elseCondition><p class="ngif">Currently you are UPSET</p></ng-template>
+    </div>
+
+    <div class="topic">
+        <h2>ngFor</h2>
+        <input type="number" (change)="changeLoop($event)" placeholder="input 1 to 5">
+        <div id="#ngFor" class="loop" *ngFor="let n of loop;">
+            <p>Count : {{ n }}</p>
+        </div>
+    </div>
+
+    <div class="topic">
+        <h2>Service</h2>
+        <button class="btn btn-primary" (click)="getCurrentIP()">Click to get your current IP</button>
+        <p>You current IP : {{ current_ip }}</p>
+    </div>
+
+    <div class="topic">
+        <h2>Component IO</h2>
+        <input type="text" placeholder="Change Input Here" [(ngModel)]="ex_variable">
+        <app-example2 [ex2_input]="ex_variable" (ex2TextClick)="exTextClick($event)"></app-example2>
+        <div class="separator"></div>
+        <p>This line display from example</p>
+        <p>This is output from example2.component.ts : {{ output_from_ex2 }}</p>
+        <button class="btn btn-danger" (click)="clearOutput()">Clear OutPut</button>
+    </div>
+
+    <div class="topic">
+        <h2>Form</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+            Name: <input type="text" formControlName="name"  placeholder="Enter Name" required>
+            Age: <input type="number" formControlName="age"  placeholder="Enter Age" required>
+            <button style="margin-left:1rem;" type="submit" class="btn btn-primary">Submit</button> 
+        </form>
+        <p *ngIf="form_submit_result != ''">{{ form_submit_result }}</p>
+        <p *ngIf="isFormError">{{ errorMessage }}</p>
+    </div>
+</div>

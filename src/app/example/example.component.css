@@ -1,0 +1,25 @@
+.example-content
+{
+    margin-top: 3rem;
+}
+
+button{
+    margin-right: 1rem;
+}
+
+.topic{
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #999;
+}
+
+.ngif
+{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.separator
+{
+    height: 1rem;
+}
